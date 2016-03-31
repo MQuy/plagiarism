@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'plagiarism/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "plagiarism"
+  spec.name          = "plagiarism2"
   spec.version       = Plagiarism::VERSION
   spec.authors       = ["MQuy"]
   spec.email         = ["sugiacupit@gmail.com"]

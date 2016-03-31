@@ -1,15 +1,11 @@
 # Plagiarism
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/plagiarism`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Search for plagiarism and check the duplication of your content by search engines, free and paid services.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```ruby
-gem 'plagiarism'
+gem 'plagiarism2', require: 'plagiarism'
 ```
 
 And then execute:
@@ -18,21 +14,35 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install plagiarism
+    $ gem install plagiarism2
 
 ## Usage
 
-TODO: Write usage instructions here
+Add in your config
 
-## Development
+```ruby
+Plagiarism.configure do |config|
+  config.strategies = [xxx] # => [:google, :bing]
+end
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+In case of using bing engine, you have to set access key
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+config.bing_key = xxx
+```
+
+After that you can check the unique of content
+
+```ruby
+text = 'Latte user story paradigm affordances experiential innovate venture capital physical computing. Ship it agile actionable insight iterate thought leader pitch deck experiential iterate. Venture capital food-truck quantitative vs. qualitative SpaceTeam convergence agile.'
+Plagiarism.unique? text
+```
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/plagiarism. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/MQuy/plagiarism. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
