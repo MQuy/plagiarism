@@ -21,6 +21,11 @@ module Plagiarism
         def exists?(typhoeus)
           raise
         end
+
+        def whitelists_regex
+          whitelists = Config.whitelists.map { |w| Regexp.new w }
+          Regexp.union whitelists
+        end
       end
 
       def initialize(c, p)

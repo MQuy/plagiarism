@@ -23,6 +23,7 @@ Add in your config
 ```ruby
 Plagiarism.configure do |config|
   config.strategies = [xxx] # => [:google, :bing]
+  config.whitelists = ['www.ring.md']
 end
 ```
 

@@ -10,7 +10,10 @@ module Plagiarism
         end
 
         def exists?(response)
-          response['d']['results'].blank?
+          response['d']['results'].all? do |r|
+            uri = URI.parse(r['Url'])
+            uri.host =~ whitelists_regex
+          end
         end
 
       end

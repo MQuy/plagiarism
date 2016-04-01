@@ -7,11 +7,14 @@ module Plagiarism
       class << self
 
         def fetch(content, params)
-          Typhoeus.get URL, params: params.merge(v: VERSION, q: content)
+          Typhoeus.get URL, params: params.merge(v: VERSION, q: content, rsz: :large)
         end
 
         def exists?(response)
-          response['responseData']['results'].blank?
+          response['responseData']['results'].all? do |r|
+            uri = URI.parse(r['unescapedUrl'])
+            uri.host =~ whitelists_regex
+          end
         end
 
       end

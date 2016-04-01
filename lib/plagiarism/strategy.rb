@@ -1,3 +1,4 @@
+require 'oauth_util'
 require 'plagiarism/strategries/engine'
 require 'plagiarism/strategries/google'
 require 'plagiarism/strategries/bing'
