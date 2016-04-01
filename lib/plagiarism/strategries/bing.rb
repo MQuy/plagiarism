@@ -6,7 +6,7 @@ module Plagiarism
       class << self
 
         def fetch(content, params)
-          Typhoeus.get(URL, params: params.merge('$format' => :json, 'Query' => content), userpwd: ":#{Config.bing_key}")
+          Typhoeus.get(URL, params: params.merge('$format' => :json, 'Query' => "'#{content}'"), userpwd: ":#{Config.bing_key}")
         end
 
         def exists?(response)
