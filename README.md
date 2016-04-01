@@ -1,6 +1,6 @@
 # Plagiarism
 
-Search for plagiarism and check the duplication of your content by search engines, free and paid services.
+Search for plagiarism and check the duplication of your content from Bing, Google, Yahoo and DuckDuckGo.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Add in your config
 
 ```ruby
 Plagiarism.configure do |config|
-  config.strategies = [xxx] # => [:google, :bing]
+  config.strategies = [xxx] # => [:google, :bing, :duck, :yahoo]
   config.whitelists = ['www.ring.md']
 end
 ```
@@ -40,11 +40,13 @@ text = 'Latte user story paradigm affordances experiential innovate venture capi
 Plagiarism.unique? text
 ```
 
+`Plagiarism.unique?` is true when all strategies is true
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/MQuy/plagiarism. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+> Disclaim: Yahoo and DuckDuckGo don't support api, therefore I have to crawl data, if you find any solution to fix, please help me.
 
 ## License
 

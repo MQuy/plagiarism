@@ -9,16 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["MQuy"]
   spec.email         = ["sugiacupit@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{Check the unique content on internet.}
+  spec.description   = %q{Check the unique content on internet from bing, google, yahoo and duckduckgo.}
   spec.homepage      = "https://github.com/MQuy/plagiarism"
   spec.license       = "MIT"
-
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "http://mygemserver.com"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
@@ -29,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_dependency 'typhoeus', '~> 1.0.1'
-  spec.add_dependency 'pragmatic_segmenter', '~> 0.3.7'
-  spec.add_dependency 'nokogiri', '~> 1.6.7.2'
+  spec.add_dependency 'typhoeus', '~> 1.0'
+  spec.add_dependency 'pragmatic_segmenter', '~> 0.3'
+  spec.add_dependency 'nokogiri', '~> 1.6'
 end
