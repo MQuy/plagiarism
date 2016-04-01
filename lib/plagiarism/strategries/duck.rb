@@ -11,7 +11,7 @@ module Plagiarism
 
         def exists?(response)
           doc = Nokogiri::HTML response
-          doc.css('.results_links_deep').all? do |row|
+          doc.css('.results_links_deep:not(.result--no-result)').all? do |row|
             href = row.at_css('.result__a').attributes['href'].value rescue ''
             uri = URI.parse href
             uri.host =~ whitelists_regex
