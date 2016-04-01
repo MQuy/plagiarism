@@ -1,5 +1,6 @@
 require 'typhoeus'
 require 'pragmatic_segmenter'
+require 'nokogiri'
 
 require 'plagiarism/version'
 require 'plagiarism/config'

@@ -13,12 +13,11 @@ module Plagiarism
         def valid_segments(ps, params)
           ps.segment.count do |sentence|
             typhoeus = fetch("'\"#{sentence}\"'", params)
-            response = JSON.parse(typhoeus.response_body)
-            exists?(response)
+            exists?(typhoeus.response_body)
           end
         end
 
-        def exists?(typhoeus)
+        def exists?(response)
           raise
         end
 

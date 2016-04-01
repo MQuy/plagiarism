@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'typhoeus', '~> 1.0.1'
   spec.add_dependency 'pragmatic_segmenter', '~> 0.3.7'
+  spec.add_dependency 'nokogiri', '~> 1.6.7.2'
 end
