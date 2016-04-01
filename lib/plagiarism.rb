@@ -1,4 +1,5 @@
 require 'typhoeus'
+require 'typhoeus/adapters/faraday'
 require 'pragmatic_segmenter'
 require 'nokogiri'
 
