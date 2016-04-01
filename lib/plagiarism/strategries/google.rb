@@ -11,8 +11,9 @@ module Plagiarism
         end
 
         def exists?(response)
-          JSON.parse(response)['responseData']['results'].all? do |r|
-            uri = URI.parse(r['unescapedUrl'])
+          results = JSON.parse(response)['responseData']['results'] rescue []
+          results.all? do |r|
+            uri = URI.parse URI::encode(r['unescapedUrl'])
             uri.host =~ whitelists_regex
           end
         end

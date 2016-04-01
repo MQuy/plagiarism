@@ -10,8 +10,9 @@ module Plagiarism
         end
 
         def exists?(response)
-          JSON.parse(response)['d']['results'].all? do |r|
-            uri = URI.parse(r['Url'])
+          results = JSON.parse(response)['d']['results'] rescue []
+          results.all? do |r|
+            uri = URI.parse URI::encode(r['Url'])
             uri.host =~ whitelists_regex
           end
         end

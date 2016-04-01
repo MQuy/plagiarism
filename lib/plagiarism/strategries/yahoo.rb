@@ -13,7 +13,7 @@ module Plagiarism
           doc = Nokogiri::HTML response
           doc.css('.searchCenterMiddle li').all? do |row|
             href = row.at_css('.compTitle div').content.strip rescue ''
-            uri = URI.parse(href =~ /^http/ ? href : 'https://' + href)
+            uri = URI.parse URI::encode(href =~ /^http/ ? href : 'https://' + href)
             uri.host =~ whitelists_regex
           end
         end
