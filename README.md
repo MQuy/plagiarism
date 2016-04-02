@@ -49,6 +49,18 @@ Plagiarism.unique? text
 
 `Plagiarism.unique?` is true when all strategies is true
 
+#### Bash
+
+```bash
+plagiarism init # generate config
+plagiarism unique -c="ringmd" # check unique
+```
+
+For more details, you can use help
+```bash
+plagiarism help init
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/MQuy/plagiarism. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
