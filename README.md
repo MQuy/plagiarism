@@ -27,10 +27,17 @@ Plagiarism.configure do |config|
 end
 ```
 
-In case of using bing engine, you have to set access key
++ Using bing engine, you have to set access key (you can get it from [here](https://datamarket.azure.com/dataset/bing/searchweb))
 
 ```ruby
 config.bing_key = xxx
+```
+
++ Using google engine, you have to set two keys (you can get it from [here](https://developers.google.com/custom-search/json-api/v1/using_rest))
+
+```ruby
+config.google_key = xxx
+config.google_cx = xx
 ```
 
 After that you can check the unique of content
@@ -46,7 +53,7 @@ Plagiarism.unique? text
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/MQuy/plagiarism. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-> Disclaim: Yahoo and DuckDuckGo don't support api, therefore I have to crawl data, if you find any solution to fix, please help me.
+> Disclaim: Yahoo and DuckDuckGo don't support api, therefore plagiarism has to crawl data and they will mark plagiarism as spam as we request too much, if you find any better solution, please help me.
 
 ## License
 
