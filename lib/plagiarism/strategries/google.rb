@@ -1,19 +1,25 @@
 module Plagiarism
   module Strategies
     class Google < Engine
-      URL = 'https://ajax.googleapis.com/ajax/services/search/web'
+      URL = 'https://www.googleapis.com/customsearch/v1'
       VERSION = '1.0'
 
       class << self
 
         def fetch(content, params)
-          Typhoeus.get URL, params: params.merge(v: VERSION, q: content, rsz: :large)
+          Typhoeus.get URL, params: params.merge(
+            key: Config.google_key,
+            cx: Config.google_cx,
+            q: content,
+            fields: 'items(link)',
+            prettyPrint: false
+          )
         end
 
         def exists?(response)
-          results = JSON.parse(response)['responseData']['results'] rescue []
+          results = JSON.parse(response)['items'] rescue []
           results.all? do |r|
-            uri = URI.parse URI::encode(r['unescapedUrl'])
+            uri = URI.parse URI::encode(r['link'])
             uri.host =~ whitelists_regex
           end
         end
