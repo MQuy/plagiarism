@@ -24,6 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
 
   spec.add_dependency 'typhoeus', '~> 1.0'
+  spec.add_dependency 'faraday', '~> 0.9.2'
   spec.add_dependency 'pragmatic_segmenter', '~> 0.3'
   spec.add_dependency 'nokogiri', '~> 1.6'
+  spec.add_dependency 'thor', '~> 0.19.1'
 end

@@ -9,7 +9,7 @@ module Plagiarism
     extend self
 
     def get(name = :google)
-      Strategies.const_get(name.to_s.classify)
+      Strategies.const_get(name.to_s.sub(/\S/, &:upcase))
     end
 
     def unique?(content, params)
