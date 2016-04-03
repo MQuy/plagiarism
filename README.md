@@ -22,20 +22,24 @@ Add in your config
 
 ```ruby
 Plagiarism.configure do |config|
-  config.strategies = [xxx] # => [:google, :bing, :duck, :yahoo]
+  config.strategies = [xxx] # => [:google, :bing, :duck, :yahoo, :free_google]
   config.whitelists = ['www.ring.md']
 end
 ```
 
+> There is a limit in using duck, yahoo and free google. If you spam request, they will mark you as spam
+
 + Using bing engine, you have to set access key (you can get it from [here](https://datamarket.azure.com/dataset/bing/searchweb))
 
 ```ruby
+config.strategies = :bing
 config.bing_key = xxx
 ```
 
-+ Using google engine, you have to set two keys (you can get it from [here](https://developers.google.com/custom-search/json-api/v1/using_rest))
++ Using google engine (not free google), you have to set two keys (you can get it from [here](https://developers.google.com/custom-search/json-api/v1/using_rest))
 
 ```ruby
+config.strategies = :google
 config.google_key = xxx
 config.google_cx = xx
 ```
