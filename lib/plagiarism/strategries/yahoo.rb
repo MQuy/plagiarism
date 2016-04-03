@@ -6,7 +6,7 @@ module Plagiarism
       class << self
 
         def fetch(content, params)
-          Typhoeus.get(URL, params: params.merge(p: content), headers: { 'User-Agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36' })
+          Typhoeus.get(URL, params: params.merge(p: content))
         end
 
         def iterate(response, action = :all?)
