@@ -1,5 +1,6 @@
 require 'plagiarism/strategries/engine'
 require 'plagiarism/strategries/google'
+require 'plagiarism/strategries/free_google'
 require 'plagiarism/strategries/bing'
 require 'plagiarism/strategries/duck'
 require 'plagiarism/strategries/yahoo'
@@ -8,8 +9,8 @@ module Plagiarism
   module Strategy
     extend self
 
-    def get(name = :google)
-      Strategies.const_get(name.to_s.sub(/\S/, &:upcase))
+    def get(name = :free_google)
+      Strategies.const_get(name.to_s.split('_').map(&:capitalize).join(''))
     end
 
     def unique?(content, params)

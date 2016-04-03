@@ -21,7 +21,7 @@ module Plagiarism
     method_option :path, aliases: '-p', desc: 'where put the config', type: :string, default: CONFIG_PATH
     def init
       create_file options[:path], <<-STRING
-strategies: "duck, yahoo"
+strategies: "yahoo"
 whitelists: "www.ring.md, blog.ring.md"
 bing_key: xxx
 google_key: xxx
