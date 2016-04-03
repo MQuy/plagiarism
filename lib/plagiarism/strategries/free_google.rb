@@ -10,9 +10,9 @@ module Plagiarism
           Typhoeus.get URL, params: params.merge(v: VERSION, q: content, rsz: :large)
         end
 
-        def iterate(response)
+        def iterate(response, action = :all?)
           results = JSON.parse(response)['responseData']['results'] rescue []
-          results.all? do |r|
+          results.send(action) do |r|
             uri = URI.parse URI::encode(r['unescapedUrl'])
             yield uri
           end

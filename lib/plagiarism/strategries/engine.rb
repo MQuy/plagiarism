@@ -10,7 +10,7 @@ module Plagiarism
           raise
         end
 
-        def iterate(r)
+        def iterate(r, a = :all?)
           raise
         end
 
@@ -51,7 +51,7 @@ module Plagiarism
       end
 
       def retrieve_link(response)
-        self.class.iterate(response) { |uri| uri.host !~ self.class.whitelists_regex and return uri.to_s }
+        self.class.iterate(response, :find) { |uri| uri.host !~ self.class.whitelists_regex and return uri.to_s }
       end
 
     end

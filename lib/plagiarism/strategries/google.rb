@@ -16,9 +16,9 @@ module Plagiarism
           )
         end
 
-        def iterate(response)
+        def iterate(response, action = :all?)
           results = JSON.parse(response)['items'] || []
-          results.all? do |r|
+          results.send(action) do |r|
             uri = URI.parse URI::encode(r['link'])
             yield uri
           end

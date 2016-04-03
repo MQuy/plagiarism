@@ -9,10 +9,10 @@ module Plagiarism
           Typhoeus.get(URL, params: params.merge(q: content))
         end
 
-        def iterate(response)
+        def iterate(response, action = :all?)
           doc = Nokogiri::HTML response
-          doc.css('.results_links_deep:not(.result--no-result)').all? do |row|
-            href = row.at_css('.result__a').attributes['href'].value rescue ''
+          doc.css('.results_links_deep:not(.result--no-result) .result__a').send(action) do |row|
+            href = row.attributes['href'].value rescue ''
             uri = URI.parse URI::encode(href)
             yield uri
           end
