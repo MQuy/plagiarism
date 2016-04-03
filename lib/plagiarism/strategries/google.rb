@@ -16,11 +16,11 @@ module Plagiarism
           )
         end
 
-        def exists?(response)
+        def iterate(response)
           results = JSON.parse(response)['items'] || []
           results.all? do |r|
             uri = URI.parse URI::encode(r['link'])
-            uri.host =~ whitelists_regex
+            yield uri
           end
         end
 

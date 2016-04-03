@@ -9,11 +9,11 @@ module Plagiarism
           Typhoeus.get(URL, params: params.merge('$format' => :json, 'Query' => "'#{content}'"), userpwd: ":#{Config.bing_key}")
         end
 
-        def exists?(response)
+        def iterate(response)
           results = JSON.parse(response)['d']['results'] rescue []
           results.all? do |r|
             uri = URI.parse URI::encode(r['Url'])
-            uri.host =~ whitelists_regex
+            yield uri
           end
         end
 

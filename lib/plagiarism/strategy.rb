@@ -18,5 +18,13 @@ module Plagiarism
         klass.new(content, params).unique?
       end
     end
+
+    def match(content, params)
+      Config.strategies.find do |strategy|
+        klass = get(strategy)
+        link = klass.new(content, params).match
+        link and return (link == true ? '' : link)
+      end
+    end
   end
 end

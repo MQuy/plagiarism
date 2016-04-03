@@ -9,12 +9,12 @@ module Plagiarism
           Typhoeus.get(URL, params: params.merge(p: content))
         end
 
-        def exists?(response)
+        def iterate(response)
           doc = Nokogiri::HTML response
           doc.css('.searchCenterMiddle li').all? do |row|
-            href = row.at_css('.compTitle div').content.strip rescue ''
-            uri = URI.parse URI::encode(href =~ /^http/ ? href : 'https://' + href)
-            uri.host =~ whitelists_regex
+            href = row.at_css('.compTitle a').attributes['href'].value rescue ''
+            uri = URI.parse URI::encode(href)
+            yield uri
           end
         end
 

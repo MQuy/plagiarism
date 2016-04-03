@@ -19,4 +19,8 @@ module Plagiarism
   def unique?(content, params = {})
     Strategy.unique?(content, params)
   end
+
+  def match(content, params = {})
+    Strategy.match(content, params)
+  end
 end
