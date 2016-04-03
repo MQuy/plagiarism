@@ -44,20 +44,27 @@ config.google_key = xxx
 config.google_cx = xx
 ```
 
-After that you can check the unique of content
+###### Plagiarism.unique?
 
 ```ruby
 text = 'Latte user story paradigm affordances experiential innovate venture capital physical computing. Ship it agile actionable insight iterate thought leader pitch deck experiential iterate. Venture capital food-truck quantitative vs. qualitative SpaceTeam convergence agile.'
-Plagiarism.unique? text
+Plagiarism.unique? text # => true
 ```
 
 `Plagiarism.unique?` is true when all strategies is true
 
+###### Plagiarism.match
+
+```ruby
+Plagiarism.match 'ringmd' # => 'www.ring.md'
+```
+
 #### Bash
 
 ```bash
-plagiarism init # generate config
-plagiarism unique -c="ringmd" # check unique
+plagiarism init # generate config, default ~/.plagiarism.yml
+plagiarism unique -c="ringmd" # => false
+plagiarism match -c="ringmd" # => 'www.ring.md'
 ```
 
 For more details, you can use help
