@@ -2,6 +2,8 @@ module Plagiarism
   module Config
     extend self
 
+    attr_accessor :threshold
+
     attr_accessor :strategies
     attr_accessor :whitelists
 

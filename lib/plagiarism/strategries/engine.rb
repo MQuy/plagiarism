@@ -35,14 +35,11 @@ module Plagiarism
         @content, @params = c, p
       end
 
-      def retrieve_link(response)
-        raise
-      end
-
       def unique?
+        threshold = Config.threshold || THRESHOLD
         ps = PragmaticSegmenter::Segmenter.new(text: content)
         valid_segments = self.class.valid_segments(ps, params)
-        valid_segments / ps.segment.size >= THRESHOLD
+        valid_segments / ps.segment.size >= threshold
       end
 
       def match
