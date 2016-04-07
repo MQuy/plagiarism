@@ -39,7 +39,7 @@ module Plagiarism
         threshold = Config.threshold || THRESHOLD
         ps = PragmaticSegmenter::Segmenter.new(text: content)
         valid_segments = self.class.valid_segments(ps, params)
-        valid_segments / ps.segment.size >= threshold
+        valid_segments.to_f / ps.segment.size >= threshold
       end
 
       def match
