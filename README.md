@@ -23,7 +23,7 @@ Add in your config
 ```ruby
 Plagiarism.configure do |config|
   config.threshold = 0.8 # => default is 0.8
-  config.strategies = [xxx] # => [:google, :bing, :duck, :yahoo, :free_google]
+  config.strategies = [xxx] # => [:google, :bing, :duck, :yahoo]
   config.whitelists = ['www.ring.md']
 end
 ```
